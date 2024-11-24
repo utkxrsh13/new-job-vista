@@ -19,7 +19,7 @@ const Job = ({job}) => {
     return (
         <div className='p-5 rounded-md shadow-xl bg-white border border-gray-100'>
             <div className='flex items-center justify-between'>
-                <p className='text-sm text-gray-500'>frq</p>
+                <p className='text-sm text-gray-500'>google </p>
                 <Button variant="outline" className="rounded-full" size="icon"><Bookmark /></Button>
             </div>
 
@@ -37,16 +37,16 @@ const Job = ({job}) => {
 
             <div>
                 <h1 className='font-bold text-lg my-2'>fronted</h1>
-                <p className='text-sm text-gray-600'>discription</p>
+                <p className='text-sm text-gray-700'>discription</p>
             </div>
             <div className='flex items-center gap-2 mt-4'>
-                <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position} Positions</Badge>
-                <Badge className={'text-[#F83002] font-bold'} variant="ghost">{job?.jobType} job type</Badge>
+                <Badge className={'text-green-600 font-bold'} variant="ghost">{job?.position} 12 Positions</Badge>
+                <Badge className={'text-blue-500 font-bold'} variant="ghost">{job?.jobType} job type</Badge>
                 <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salary}23LPA</Badge>
             </div>
             <div className='flex items-center gap-4 mt-4'>
                 <Button onClick={()=> navigate(`/Description/${jobId}`)} variant="outline">Details</Button>
-                <Button className="bg-[#7209b7]">Save For Later</Button>
+                <Button className="bg-customBlack rounded-md">Save For Later</Button>
             </div>
         </div>
     )

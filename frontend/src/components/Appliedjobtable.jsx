@@ -7,7 +7,7 @@ const Appliedjobtable = () => {
     <div>
       <Table>
         <TableCaption>
-            your applied jobs
+            your  applied jobs
         </TableCaption>
         <TableHeader>
             <TableRow>

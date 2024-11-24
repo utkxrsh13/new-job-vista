@@ -15,8 +15,8 @@ function LatestJobCards() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, optio?</p>
       </div>
       <div>
-        <Badge className={'text-blue-700 font-bold' } variant={'ghost'}>12 positions</Badge>
-        <Badge className={'text-red-700 font-bold' } variant={'ghost'}>Part Time</Badge>
+        <Badge className={'text-green-600 font-bold' } variant={'ghost'}>12 positions</Badge>
+        <Badge className={'text-blue-600 font-bold' } variant={'ghost'}>Part Time</Badge>
         <Badge className={'text-purple-700 font-bold' } variant={'ghost'}>23 Lpa</Badge>
       </div>
     </div>
