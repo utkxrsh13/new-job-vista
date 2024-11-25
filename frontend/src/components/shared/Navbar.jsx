@@ -9,8 +9,11 @@ import { LogOut, User2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import store from '@/Redux/Store';
-
+// import store from '@/Redux/Store';
+import { toast } from 'sonner';
+import { USER_API_END_POINT } from '@/utils/constant';
+import axios from 'axios';
+import { setUser } from '@/Redux/authslice';
 
 const Navbar = () => {
   const {user}=useSelector(store=>store.auth);
@@ -77,7 +80,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex w-fit items-center gap-2 cursor-pointer'>
                       <LogOut />
-                      <Button onClick={logoutHandler}variant="link">logout</Button>
+                      <Button onClick={logoutHandler} variant="link">logout</Button>
                     </div>
                   </div>
                 </PopoverContent>

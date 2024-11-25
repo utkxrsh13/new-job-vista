@@ -31,7 +31,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 
     const fileChangeHandler = (e) => {
         const file = e.target.files?.[0];
-        setInput({ ...input, file })
+        setInput({ ...input, file });
     }
 
     const submitHandler = async (e) => {
@@ -66,7 +66,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         setOpen(false);
         console.log(input);
     }
-console.log(user?.fullname,user?.email,user?.profile?.skills);
+// console.log(user?.fullname,user?.email,user?.profile?.skills);
 
 
 

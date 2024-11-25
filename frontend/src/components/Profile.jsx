@@ -21,7 +21,8 @@ const isResume = true;
 const Profile = () => {
     const [open,setOpen]=useState(false);
     const {user}=useSelector(store=>store.auth);
-    // console.log(user?.fullname,user?.email);
+    console.log(user?.profile?.resumeOriginalName);
+    
     
     return (
         <div className='bg-customGray'>
@@ -62,15 +63,15 @@ const Profile = () => {
                     <h1>skills</h1>
                     <div className='flex items-center gap-3'>
                         {
-                         user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
+                         user?.profile?.skills.length !== 0 ?  user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
                         }
                     </div>
 
                 </div>
                 <div className='grid max-w-sm items-center gap-1.5'>
-                    <Label className="text-md font-bold">{user?.profile?.resume}</Label>
+                    <Label className="text-md font-bold">Resume</Label>
                     {
-                        isResume ? <a className='text-blue-500 hover:underline font-bold text-sm' target='blank' href='https://portfolio-tushars-projects-749fed38.vercel.app/'>Tushar resume</a> : <span>NA</span>
+                        isResume ? <a className='text-blue-500 hover:underline font-bold text-sm' target='blank' href={user?.profile?.resume}>{user?.Profile?.resumeOriginalName}</a> : <span>NA</span>
 
                     }
 
