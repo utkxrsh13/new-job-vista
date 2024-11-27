@@ -21,7 +21,10 @@ const isResume = true;
 const Profile = () => {
     const [open,setOpen]=useState(false);
     const {user}=useSelector(store=>store.auth);
-    console.log(user?.profile?.resumeOriginalName);
+    // console.log(user?.profile?.resumeOriginalName);
+    // console.log(user?.profile?.skills);
+
+    
     
     
     return (
@@ -33,7 +36,7 @@ const Profile = () => {
                 <div className='flex justify-between'>
                     <div className='flex items-center gap-4'>
                         <Avatar className='h-24 w-24'>
-                            <AvatarImage src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4UZMVsHHG39YcvDid1DkkLcVLofM2V7Z_Ov2vXSoajL34jl2jgbEbBEk&s' alt='/profile' />
+                            <AvatarImage className='h-24 w-24' src={user?.profile?.profilePhoto} alt='/profile' />
 
                         </Avatar>
                         <div className=''>
@@ -63,7 +66,7 @@ const Profile = () => {
                     <h1>skills</h1>
                     <div className='flex items-center gap-3'>
                         {
-                         user?.profile?.skills.length !== 0 ?  user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
+                         user?.profile?.skills.length !== 0 ?  user?.profile?.skills.map((item, index) => <Badge key={index}>{user?.profile?.skills}</Badge>) : <span>NA</span>
                         }
                     </div>
 
@@ -71,13 +74,11 @@ const Profile = () => {
                 <div className='grid max-w-sm items-center gap-1.5'>
                     <Label className="text-md font-bold">Resume</Label>
                     {
-                        isResume ? <a className='text-blue-500 hover:underline font-bold text-sm' target='blank' href={user?.profile?.resume}>{user?.Profile?.resumeOriginalName}</a> : <span>NA</span>
+                        isResume ? <a className='text-blue-500 hover:underline font-bold text-sm' target='blank' href={user?.profile?.resume}>{user?.profile?.resumeOriginalName}</a> : <span>NA</span>
 
                     }
 
                 </div>
-
-
             </div>
             <div className=' max-w-4xl shadow-xl  mx-auto bg-customGray rounded-2xl'>
                 <h1 className=' mb-6  font-bold text-xl  '>Applied jobs</h1>

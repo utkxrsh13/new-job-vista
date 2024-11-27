@@ -11,6 +11,8 @@ import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading, setUser } from '@/Redux/authslice'
 import { Loader2 } from 'lucide-react'
+// import jobvistaback from './assets/jobvistaback.jpg'
+
 // import reducer from '@/Redux/authslice'
 
 const Login = () => {
@@ -55,9 +57,9 @@ const Login = () => {
         }
     },[])
     return (
-        <div className=' bg-customGray min-h-screen'>
+        <div className=' bg-customGray    bg-example-pattern bg-cover bg-center  h-screen w-screen  min-h-screen'>
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl mx-auto'>
+            <div className='p-12 flex items-center justify-center max-w-7xl mx-auto'>
                 <form onSubmit={submitHandler} className='w-1/2 border shadow-md rounded-md p-4 my-10'>
                     <h1 className='font-bold text-xl mb-5'>Login</h1>
                     <div className='my-2'>

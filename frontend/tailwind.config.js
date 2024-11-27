@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+			'example-pattern': "url('/src/assets/jobvistaback.png')",
+		  },
 		fontFamily: {
 			heading: ['Poppins', 'sans-serif'], 
 			montserrat: ['Montserrat', 'sans-serif'],

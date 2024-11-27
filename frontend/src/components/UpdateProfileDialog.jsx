@@ -7,7 +7,6 @@ import { Loader2 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
-// import { setUser } from '@/Redux/authSlice'
 import { setUser } from '@/Redux/authslice'
 import { toast } from 'sonner'
 
@@ -20,7 +19,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         email: user?.email || "",
         phoneNumber: user?.phoneNumber || "",
         bio: user?.profile?.bio || "",
-        skills: user?.profile?.skills?.map(skill => skill) || "",
+        skills: user?.profile?.skills?.map(skills => skills) || "",
         file: user?.profile?.resume || ""
     });
     const dispatch = useDispatch();
@@ -67,6 +66,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         console.log(input);
     }
 // console.log(user?.fullname,user?.email,user?.profile?.skills);
+// console.log(user?.profile?.skills);
 
 
 
@@ -137,6 +137,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     id="file"
                                     name="file"
                                     type="file"
+                                    // value={input.file}
                                     accept="application/pdf"
                                     onChange={fileChangeHandler}
                                     className="col-span-3"
