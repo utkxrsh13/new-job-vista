@@ -11,9 +11,6 @@ import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading, setUser } from '@/Redux/authslice'
 import { Loader2 } from 'lucide-react'
-// import jobvistaback from './assets/jobvistaback.jpg'
-
-// import reducer from '@/Redux/authslice'
 
 const Login = () => {
     const [input, setInput] = useState({
