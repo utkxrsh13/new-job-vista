@@ -28,7 +28,7 @@ const Navbar = () => {
           if (res.data.success) {
               // dispatch(setUser(null));
               localStorage.removeItem("user")
-              navigate("/");
+              navigate("/login");
               toast.success(res.data.message);
           }
       } catch (error) {

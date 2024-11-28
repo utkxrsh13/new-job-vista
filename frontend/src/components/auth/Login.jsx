@@ -28,6 +28,11 @@ const Login = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        // console.log(e)
+        if(input.email === "" || input.password === "" || input.role === ""){
+            toast.error("please fill all the fields!!!")
+            return;
+        }
         try {
             dispatch(setLoading(true));
             const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
