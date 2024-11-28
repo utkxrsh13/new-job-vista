@@ -16,15 +16,18 @@ import axios from 'axios';
 import { setUser } from '@/Redux/authslice';
 
 const Navbar = () => {
-  const {user}=useSelector(store=>store.auth);
+  // const {user}=useSelector(store=>store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+  // console.log(user,"djfih")
 
   const logoutHandler = async () => {
       try {
           const res = await axios.get(`${USER_API_END_POINT}/logout`, { withCredentials: true });
           if (res.data.success) {
-              dispatch(setUser(null));
+              // dispatch(setUser(null));
+              localStorage.removeItem("user")
               navigate("/");
               toast.success(res.data.message);
           }

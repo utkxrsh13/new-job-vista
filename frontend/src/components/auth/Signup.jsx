@@ -68,7 +68,7 @@ const Signup = () => {
         }
     },[])
     return (
-        <div className='bg-customGray min-h-screen bg-example-pattern bg-cover bg-center  h-screen w-screen'>
+        <div className='bg-customGray min-h-screen '>
             <Navbar />
             <div className='p-10 flex items-center justify-center max-w-7xl mx-auto'>
                 <form onSubmit={submitHandler} className='w-1/2  shadow-md border   rounded-md p-4 my-10'>

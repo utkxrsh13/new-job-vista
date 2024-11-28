@@ -37,7 +37,27 @@ const Login = () => {
                 withCredentials: true,
             });
             if (res.data.success) {
-                dispatch(setUser(res.data.user));
+                // console.log(res.data.user,"jdhjb");
+                if(res.data.token && res.data.user){
+                    // localStorage.setItem("token",res.data.token);
+                    localStorage.setItem("user", JSON.stringify({
+                        fullname: "saurabh",
+                        email: "saurabh@123",
+                        phoneNumber: 1234567890,
+                        role: "student",
+                        profile: {
+                          profilePhoto: "https://res.cloudinary.com/dzba43nps/image/upload/v1732681193/eb0ukdoa8bjtufodqsob.jpg",
+                          skills: [],
+                          bio: "i am a frontend developer",
+                          resume: "https://res.cloudinary.com/dzba43nps/image/upload/v1732681696/cnhzkx64zik35qixqc5l.pdf",
+                          resumeOriginalName: "TusharPatel_resume.pdf"
+                        },
+                        token : res.data.token
+                      }));
+                      
+                } 
+                // const user = JSON.parse(localStorage.getItem("user"));
+                // dispatch(setUser(user));
                 navigate("/");
                 toast.success(res.data.message);
             }
@@ -54,7 +74,7 @@ const Login = () => {
         }
     },[])
     return (
-        <div className=' bg-customGray    bg-example-pattern bg-cover bg-center  h-screen w-screen  min-h-screen'>
+        <div className=' bg-customGray    min-h-screen'>
             <Navbar />
             <div className='p-12 flex items-center justify-center max-w-7xl mx-auto'>
                 <form onSubmit={submitHandler} className='w-1/2 border shadow-md rounded-md p-4 my-10'>
