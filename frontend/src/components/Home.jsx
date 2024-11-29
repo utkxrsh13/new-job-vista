@@ -9,7 +9,7 @@ import useGetAllJobs from '@/hooks/useGetAllJobs'
 function Home() {
   useGetAllJobs();
   return (
-    <div className='bg-customGray'>
+    <div className='bg-customGray min-h-screen'>
       <Navbar/>
       < HeroSection />
        <CategoryCarousel/>

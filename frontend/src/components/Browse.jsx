@@ -5,6 +5,8 @@ import Job from './Job'
 const randomjobs = [1, 2, 3, 4]
 
 function Browse() {
+
+  const randomjobs=(store=>store.auth)
   return (
 
 
@@ -15,7 +17,7 @@ function Browse() {
         <h1 className='font-bold text-xl  '>Search Result ({randomjobs.length})</h1>
         <div className='grid grid-cols-3 gap-4 '>
           {
-            randomjobs.map((icon, index) => {
+            randomjobs.map((job) => {
               return (
                 <Job />
               )
