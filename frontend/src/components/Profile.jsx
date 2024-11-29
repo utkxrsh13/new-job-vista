@@ -5,9 +5,9 @@ import { Button } from './ui/button'
 import { Contact, Mail, Pen } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Label } from './ui/label'
-import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
+import Appliedjobtable from './AppliedJobTable'
 // import useGetAppliedJobs from '@/hooks/useGetAppliedJobs'
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
@@ -61,8 +61,8 @@ const Profile = () => {
             </div>
             <div className='max-w-4xl mx-auto bg-white rounded-2xl'>
                 <h1 className='font-bold text-lg my-5'>Applied Jobs</h1>
-                {/* Applied Job Table   */}
-                <AppliedJobTable />
+                Applied Job Table  
+                <Appliedjobtable />
             </div>
             <UpdateProfileDialog open={open} setOpen={setOpen}/>
         </div>
