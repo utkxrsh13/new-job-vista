@@ -13,7 +13,7 @@ export const postJob = async (req, res) => {
       position,
       companyId,
     } = req.body;
-    const userId = req.id;
+    const userId = req._id;
     if (
       !title ||
       !description ||

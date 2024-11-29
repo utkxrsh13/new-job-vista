@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookie());
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173","https://new-job-vista-tushar.vercel.app"],
   credentials: true,
 }
 app.use(cors(corsOption))
