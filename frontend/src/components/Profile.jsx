@@ -7,7 +7,7 @@ import { Badge } from './ui/badge'
 import { Label } from './ui/label'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
-import Appliedjobtable from './AppliedJobTable'
+import Appliedjobtable from './Appliedjobtable'
 // import useGetAppliedJobs from '@/hooks/useGetAppliedJobs'
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
@@ -62,7 +62,7 @@ const Profile = () => {
             <div className='max-w-4xl mx-auto bg-white rounded-2xl'>
                 <h1 className='font-bold text-lg my-5'>Applied Jobs</h1>
                 Applied Job Table  
-                {/* <Appliedjobtable /> */}
+                <Appliedjobtable />
             </div>
             <UpdateProfileDialog open={open} setOpen={setOpen}/>
         </div>
