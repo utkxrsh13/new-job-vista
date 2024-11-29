@@ -28,11 +28,6 @@ const Login = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        // console.log(e)
-        if(input.email === "" || input.password === "" || input.role === ""){
-            toast.error("please fill all the fields!!!")
-            return;
-        }
         try {
             dispatch(setLoading(true));
             const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
@@ -42,27 +37,7 @@ const Login = () => {
                 withCredentials: true,
             });
             if (res.data.success) {
-                // console.log(res.data.user,"jdhjb");
-                if(res.data.token && res.data.user){
-                    // localStorage.setItem("token",res.data.token);
-                    localStorage.setItem("user", JSON.stringify({
-                        fullname: "saurabh",
-                        email: "saurabh@123",
-                        phoneNumber: 1234567890,
-                        role: "student",
-                        profile: {
-                          profilePhoto: "https://res.cloudinary.com/dzba43nps/image/upload/v1732681193/eb0ukdoa8bjtufodqsob.jpg",
-                          skills: [],
-                          bio: "i am a frontend developer",
-                          resume: "https://res.cloudinary.com/dzba43nps/image/upload/v1732681696/cnhzkx64zik35qixqc5l.pdf",
-                          resumeOriginalName: "TusharPatel_resume.pdf"
-                        },
-                        token : res.data.token
-                      }));
-                      
-                } 
-                // const user = JSON.parse(localStorage.getItem("user"));
-                // dispatch(setUser(user));
+                dispatch(setUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
             }
@@ -79,10 +54,10 @@ const Login = () => {
         }
     },[])
     return (
-        <div className=' bg-customGray    min-h-screen'>
+        <div className='bg-customGray min-h-screen'>
             <Navbar />
-            <div className='p-12 flex items-center justify-center max-w-7xl mx-auto'>
-                <form onSubmit={submitHandler} className='w-1/2 border shadow-md rounded-md p-4 my-10'>
+            <div className='flex items-center justify-center max-w-7xl mx-auto'>
+                <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10'>
                     <h1 className='font-bold text-xl mb-5'>Login</h1>
                     <div className='my-2'>
                         <Label>Email</Label>
@@ -137,7 +112,6 @@ const Login = () => {
                     <span className='text-sm'>Don't have an account? <Link to="/signup" className='text-blue-600'>Signup</Link></span>
                 </form>
             </div>
-            
         </div>
     )
 }

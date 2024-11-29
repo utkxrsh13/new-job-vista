@@ -19,7 +19,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         email: user?.email || "",
         phoneNumber: user?.phoneNumber || "",
         bio: user?.profile?.bio || "",
-        skills: user?.profile?.skills?.map(skills => skills) || "",
+        skills: user?.profile?.skills?.map(skill => skill) || "",
         file: user?.profile?.resume || ""
     });
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 
     const fileChangeHandler = (e) => {
         const file = e.target.files?.[0];
-        setInput({ ...input, file });
+        setInput({ ...input, file })
     }
 
     const submitHandler = async (e) => {
@@ -65,15 +65,13 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         setOpen(false);
         console.log(input);
     }
-// console.log(user?.fullname,user?.email,user?.profile?.skills);
-// console.log(user?.profile?.skills);
 
 
 
     return (
-        <div >
+        <div>
             <Dialog open={open}>
-                <DialogContent className="sm:max-w-[425px] " onInteractOutside={() => setOpen(false)}>
+                <DialogContent className="sm:max-w-[425px]" onInteractOutside={() => setOpen(false)}>
                     <DialogHeader>
                         <DialogTitle>Update Profile</DialogTitle>
                     </DialogHeader>
@@ -85,7 +83,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     id="name"
                                     name="name"
                                     type="text"
-                                    value={input.fullname }
+                                    value={input.fullname}
                                     onChange={changeEventHandler}
                                     className="col-span-3"
                                 />
@@ -137,7 +135,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     id="file"
                                     name="file"
                                     type="file"
-                                    // value={input.file}
                                     accept="application/pdf"
                                     onChange={fileChangeHandler}
                                     className="col-span-3"
