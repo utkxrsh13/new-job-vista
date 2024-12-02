@@ -4,7 +4,7 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button' 
 import { useNavigate } from 'react-router-dom' 
 import { useDispatch } from 'react-redux' 
-// import AdminJobsTable from './AdminJobsTable'
+import AdminJobsTable from './AdminJobsTable'
 import useGetAllAdminJobs from '@/hooks/useGetAllAdminJobs'
 import { setSearchJobByText } from '@/Redux/jobSlice'
 
@@ -29,7 +29,7 @@ const AdminJobs = () => {
           />
           <Button onClick={() => navigate("/admin/jobs/create")}>New Jobs</Button>
         </div>
-        {/* <AdminJobsTable /> */}
+        <AdminJobsTable />
       </div>
     </div>
   )

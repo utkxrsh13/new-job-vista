@@ -13,7 +13,7 @@ export const postJob = async (req, res) => {
       position,
       companyId,
     } = req.body;
-    const userId = req._id;
+    const userId = req.id;
     if (
       !title ||
       !description ||
@@ -33,14 +33,14 @@ export const postJob = async (req, res) => {
     const job = await Job.create({
       title,
       description,
-      requirements,
-      salary,
+      requirements: requirements.split(","),
+      salary: Number(salary),
       location,
       jobType,
-      experienceLevel:experience,
+      experienceLevel: experience,
       position,
-      company:companyId,
-      createdBy:userId
+      company: companyId,
+      created_by: userId,
     });
     return res.status(201).json({
       message: "New job created successfully.",
@@ -88,7 +88,7 @@ export const getJobById = async (req, res) => {
       });
       if (!job) {
           return res.status(404).json({
-              message: "Jobs not found.",
+              message: "Jobs not found",
               success: false
           })
       };
@@ -101,7 +101,7 @@ export const getJobById = async (req, res) => {
 export const getAdminJobs = async (req, res) => {
   try {
       const adminId = req.id;
-      const jobs = await Job.find({ createdBy: adminId }).populate({
+      const jobs = await Job.find({ created_by: adminId }).populate({
           path:'company',
           createdAt:-1
       });
