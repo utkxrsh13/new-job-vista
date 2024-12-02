@@ -16,8 +16,8 @@ const JobDescription = () => {
     const dispatch = useDispatch();
     const {singleJob} = useSelector(store=>store.job);
     const {user} = useSelector(store=>store.auth);
-    console.log({user},"user")
-    console.log({singleJob},"singlejob")
+    // console.log({user},"user")
+    // console.log({singleJob},"singlejob")
 
    
     
@@ -33,26 +33,18 @@ const JobDescription = () => {
     useEffect(()=>{
         const fetchSingleJob = async () => {
             try {
-                
                 const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`,{withCredentials:true});
-               console.log(res);
-               console.log("get api");
-               
-                
+                console.log(res);
                 if(res.data.success){
-                    console.log("get data")
                     dispatch(setSingleJob(res.data.job));
-                    console.log("no error")
-                   
-                    setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) // Ensure the state is in sync with fetched data
+                    setIsApplied(false);
+                    // setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) // Ensure the state is in sync with fetched data
                 }
             } catch (error) {
                 console.log(error);
-               
             }
-            
         }
-        fetchSingleJob()
+        fetchSingleJob(); 
     },[jobId,dispatch, user?._id]);
 
     return (

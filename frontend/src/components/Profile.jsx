@@ -19,7 +19,7 @@ const Profile = () => {
     const {user} = useSelector(store=>store.auth);
 
     return (
-        <div className='bg-customGray border'>
+        <div className='bg-customGray '>
             <Navbar />
             <div className='max-w-4xl mx-auto bg-customGra border border-gray-200 rounded-2xl my-5 p-8'>
                 <div className='flex justify-between'>
