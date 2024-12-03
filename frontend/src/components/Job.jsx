@@ -4,10 +4,13 @@ import { Bookmark } from 'lucide-react'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import Companies from './admin/Companies'
 
 const Job = ({job}) => {
     const navigate = useNavigate();
     // const jobId = "lsekdhjgdsnfvsdkjf";
+    
 
     const daysAgoFunction = (mongodbTime) => {
         const createdAt = new Date(mongodbTime);
@@ -26,7 +29,7 @@ const Job = ({job}) => {
             <div className='flex items-center gap-2 my-2'>
                 <Button className="p-6" variant="outline" size="icon">
                     <Avatar>
-                        <AvatarImage src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4UZMVsHHG39YcvDid1DkkLcVLofM2V7Z_Ov2vXSoajL34jl2jgbEbBEk&s' alt='/profile' />
+                        <AvatarImage src={job?.company?.logo} alt='/profile' />
                     </Avatar>
                 </Button>
                 <div>
