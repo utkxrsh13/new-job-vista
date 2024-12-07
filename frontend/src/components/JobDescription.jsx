@@ -19,17 +19,20 @@ const JobDescription = () => {
 
     const params = useParams();
     const jobId = params.jobid;
+    // console.log(jobId)
     const dispatch = useDispatch();
 // console.log(jobId)
     const applyJobHandler = async () => {
         try {
-            console.log(`${APPLICATION_API_END_POINT}/apply/${jobId}`)
+            console.log("error not occured")
+            // console.log(`${APPLICATION_API_END_POINT}/apply/${jobId}`)
             const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
-            console.log(res);
+            console.log(res,"res not getting")
+           
           
             if(res.data.success){
                 setIsApplied(true); 
-                // console.log(user._id,"useris")
+               
                 // Update the local state
                 const updatedSingleJob = {...singleJob, applications:[...singleJob.applications,{applicant:user?._id}]}
                 dispatch(setSingleJob(updatedSingleJob)); // helps us to real time UI update
