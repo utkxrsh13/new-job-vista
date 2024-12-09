@@ -7,11 +7,12 @@ import userRoute from "./routes/user.route.js";
 import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
-import path from "path";
+// import path from "path";
 dotenv.config({});
 
 const app = express();
 // const dirname=path.resolve();
+
 
 // middleware
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
     origin:['http://localhost:5173','https://new-job-vista-tushar.vercel.app'],
+    methods:["POST","GET"],
     credentials:true,
 }
 
